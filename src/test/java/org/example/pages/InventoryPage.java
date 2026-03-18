@@ -11,6 +11,9 @@ public class InventoryPage extends BasePage{
     @FindBy(className = "btn_inventory")
     private List<WebElement> addToCartButtons;
 
+    @FindBy(className = "shopping_cart_link")
+    private WebElement cartButton;
+
     public InventoryPage(WebDriver driver) {
         super(driver);
     }
@@ -20,6 +23,10 @@ public class InventoryPage extends BasePage{
         Random random = new Random();
         int rand_index = random.nextInt(this.addToCartButtons.size());
         addToCartButtons.get(rand_index).click();
+    }
+
+    public void clickCartButton(){
+        this.cartButton.click();
     }
 
 }
