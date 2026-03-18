@@ -23,7 +23,4 @@ public class LoginPage extends BasePage{
         this.password.sendKeys(password);
         this.login_button.click();
     }
-
-
-
 }

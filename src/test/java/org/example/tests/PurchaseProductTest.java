@@ -6,9 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
-public class SauceDemoTests extends BaseTest{
+public class PurchaseProductTest extends BaseTest{
 
     @BeforeMethod
     public void login(){
@@ -19,7 +17,7 @@ public class SauceDemoTests extends BaseTest{
         loginPage.login(username,password);
     }
 
-    @Test
+    @Test(testName = "Select a product and go through the entire purchase process.")
     public void purchaseProductTest(){
         String first_name = "Aidan";
         String last_name = "Griven";

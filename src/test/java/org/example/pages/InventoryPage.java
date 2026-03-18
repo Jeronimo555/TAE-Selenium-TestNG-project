@@ -25,6 +25,14 @@ public class InventoryPage extends BasePage{
         add_to_cart_buttons.get(rand_index).click();
     }
 
+    //This method is necessary becasue calling the addToCart
+    //method multiple times can trigger the same item multiple times.
+    public void addMultipleDifferentProducts(int amount) {
+        for (int i = 0; i < amount; i++) {
+            this.add_to_cart_buttons.get(i).click();
+        }
+    }
+
     public void clickCartButton(){
         this.cart_button.click();
     }

@@ -2,6 +2,7 @@ package org.example.tests;
 
 import lombok.Builder;
 import lombok.Data;
+import org.example.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -30,6 +31,7 @@ public abstract class BaseTest {
 
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
+        options.addArguments("--incognito");
 
         return options;
     }
