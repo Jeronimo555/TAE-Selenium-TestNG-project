@@ -1,7 +1,9 @@
 package org.example.tests;
 
+import org.example.pages.InventoryPage;
 import org.example.pages.LoginPage;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class SauceDemoTests extends BaseTest{
 
@@ -12,7 +14,9 @@ public class SauceDemoTests extends BaseTest{
 
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.login(username,password);
-     }
+    }
 
-
+    @Test
+    public void purchaseProductTest(){
+    }
 }
