@@ -23,4 +23,12 @@ public class LoginPage extends BasePage{
         this.password.sendKeys(password);
         this.login_button.click();
     }
+
+    public boolean checkIfLoginIsVisible(){
+        try {
+            return login_button.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
