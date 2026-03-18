@@ -4,19 +4,44 @@ import lombok.Builder;
 import lombok.Data;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 @Data
 public abstract class BaseTest {
     private WebDriver driver;
     private static final String URL = "https://www.saucedemo.com/";
 
+    //There is a data breach pop up that is messing up the flow of execution of Selenium.
+    //Therefore, we have to disable it.
+    public ChromeOptions disablePopups(){
+        ChromeOptions options = new ChromeOptions();
+
+        // Disable the password manager and credential service (This kills the data breach popup)
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        options.setExperimentalOption("prefs", prefs);
+
+        options.addArguments("--disable-notifications");
+        options.addArguments("--disable-popup-blocking");
+
+        return options;
+    }
+
     @BeforeMethod
     public void setup(){
         //Set up the Selenium WebDriver.
-        driver = new ChromeDriver();
+        ChromeOptions options = disablePopups();
+
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(URL);
     }
 
