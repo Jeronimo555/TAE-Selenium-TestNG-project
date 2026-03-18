@@ -1,9 +1,7 @@
 package org.example.tests;
 
-import org.example.pages.CartPage;
-import org.example.pages.CheckoutInfoPage;
-import org.example.pages.InventoryPage;
-import org.example.pages.LoginPage;
+import org.example.pages.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -26,16 +24,19 @@ public class SauceDemoTests extends BaseTest{
         String last_name = "Griven";
         String postal_code = "133";
 
+        WebDriver driver = getDriver();
 
-        InventoryPage inventoryPage = new InventoryPage(getDriver());
-        CartPage cartPage = new CartPage(getDriver());
-        CheckoutInfoPage checkoutInfoPage = new CheckoutInfoPage(getDriver());
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        CartPage cartPage = new CartPage(driver);
+        CheckoutInfoPage checkoutInfoPage = new CheckoutInfoPage(driver);
+        CheckoutOverviewPage checkoutOverviewPage = new CheckoutOverviewPage(driver);
 
         inventoryPage.addToCart();
         inventoryPage.clickCartButton();
 
         cartPage.checkout();
         checkoutInfoPage.fillInformation(first_name,last_name,postal_code);
+        checkoutOverviewPage.clickFinish();
 
     }
 }
