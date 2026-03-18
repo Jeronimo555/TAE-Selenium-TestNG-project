@@ -14,14 +14,14 @@ public class LoginPage extends BasePage{
     private WebElement password;
 
     @FindBy(id = "login-button")
-    private WebElement loginButton;
+    private WebElement login_button;
 
     public LoginPage(WebDriver driver) {super(driver);}
 
     public void login(String username, String password){
         this.username.sendKeys(username);
         this.password.sendKeys(password);
-        this.loginButton.click();
+        this.login_button.click();
     }
 
 
