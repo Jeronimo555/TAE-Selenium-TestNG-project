@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import org.example.pages.CartPage;
 import org.example.pages.InventoryPage;
 import org.example.pages.LoginPage;
 import org.testng.annotations.BeforeMethod;
@@ -21,9 +22,12 @@ public class SauceDemoTests extends BaseTest{
     @Test
     public void purchaseProductTest(){
         InventoryPage inventoryPage = new InventoryPage(getDriver());
+        CartPage cartPage = new CartPage(getDriver());
 
         inventoryPage.addToCart();
         inventoryPage.clickCartButton();
+
+        cartPage.checkout();
 
     }
 }
