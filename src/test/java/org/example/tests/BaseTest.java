@@ -36,6 +36,15 @@ public abstract class BaseTest {
         return options;
     }
 
+    public void login(){
+        String username = "standard_user";
+        String password = "secret_sauce";
+
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.login(username,password);
+    }
+
+
     @BeforeMethod
     public void setup(){
         //Set up the Selenium WebDriver.
@@ -45,6 +54,8 @@ public abstract class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(URL);
+
+        login();
     }
 
     @AfterMethod

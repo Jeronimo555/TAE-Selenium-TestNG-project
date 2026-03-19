@@ -9,14 +9,6 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class RemoveCartElementsTest extends BaseTest{
-    @BeforeMethod
-    public void login(){
-        String username = "standard_user";
-        String password = "secret_sauce";
-
-        LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.login(username,password);
-    }
 
     @Test(testName = "Add 3 elements to Cart and then remove them.")
     public void removeCartElementsTest(){

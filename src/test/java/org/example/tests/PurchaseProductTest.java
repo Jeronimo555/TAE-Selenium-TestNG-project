@@ -8,15 +8,6 @@ import org.testng.annotations.Test;
 
 public class PurchaseProductTest extends BaseTest{
 
-    @BeforeMethod
-    public void login(){
-        String username = "standard_user";
-        String password = "secret_sauce";
-
-        LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.login(username,password);
-    }
-
     @Test(testName = "Select a product and go through the entire purchase process.")
     public void purchaseProductTest(){
         String first_name = "Aidan";
